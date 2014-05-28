@@ -1,0 +1,54 @@
+
+.hidden{
+	display: none;
+}
+
+.vis-s{
+	@include respond( S ) { 	display: inherit!important;	}
+	@include respond( M ) { 	display: none!important;	}
+	@include respond( L ) { 	display: none!important;	}
+}
+.vis-m{	
+	@include respond( S ) { 	display: none!important;	}
+	@include respond( M ) { 	display: inherit!important;	}
+	@include respond( L ) { 	display: none!important;	}
+}
+.vis-l{
+	@include respond( S ) { 	display: none!important;	}
+	@include respond( M ) { 	display: none!important;	}
+	@include respond( L ) { 	display: inherit!important;	}
+}
+
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+.vis-m-down{	
+	@include respond( S ) { 	display: inherit!important;	}
+	@include respond( M ) { 	display: inherit!important;	}
+	@include respond( L ) { 	display: none!important;	}
+}
+.vis-m-up{
+	@include respond( S ) { 	display: none!important;	}
+	@include respond( M ) { 	display: inherit!important;	}
+	@include respond( L ) { 	display: inherit!important;	}
+}
+
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+.invis-s{
+	@include respond( S ) { 	display: none!important;	}
+	@include respond( M ) { 	display: inherit!important;	}
+	@include respond( L ) { 	display: inherit!important;	}
+}
+.invis-m{	
+	@include respond( S ) { 	display: inherit!important;	}
+	@include respond( M ) { 	display: none!important;	}
+	@include respond( L ) { 	display: inherit!important;	}
+}
+.invis-l{
+	@include respond( S ) { 	display: inherit!important;	}
+	@include respond( M ) { 	display: inherit!important;	}
+	@include respond( L ) { 	display: none!important;	}
+}
+
