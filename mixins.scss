@@ -1,0 +1,159 @@
+
+
+
+
+
+
+@mixin unStyleList{
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+}
+
+
+
+
+
+
+
+@mixin absoluteCover{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+
+
+
+
+
+
+
+//Grid
+$gridWidthLarge: 1180px;
+$gridWidthMedium: 720px; 
+$gridWidthSmall: 320px; 
+
+//Breaks
+$break-large: 1180px;
+$break-small: 720px;
+
+$media-queries: true !default;
+
+@mixin respond($media) {
+
+	@if $media-queries {
+
+	  @if $media == S {
+	    @media only screen and (max-width: $break-small) { @content; }
+	  }
+
+	  @else if $media == M {
+	    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+	  }
+
+	  @else if $media == L {
+	    @media only screen and (min-width: $break-large) { @content; }
+	  }
+
+	  @else if $media == ML {
+	    @media only screen and (min-width: $break-small + 1) { @content; }
+	  }
+
+	}
+	//For IE
+	@else if $media != S {
+	    @content;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+// Possible Responsive Grid
+
+//Small - has 4 cols
+@include respond( S ) {
+	.S1, .S2, .S3, .S4{ 					float: left;}
+	.S1{	width: percentage( 1/4);	}
+	.S2{	width: percentage( 2/4);	}
+	.S3{	width: percentage( 3/4);	}
+	.S4{	width: percentage( 4/4);	}
+}
+//Medium - has 8 cols
+@include respond( M ) {
+	.M1, .M2, .M3, .M4, .M5, .M6, .M7, .M8, .M1_3{ float: left;	}
+	.M1{	width: percentage( 1/8);	}
+	.M2{	width: percentage( 2/8);	}
+	.M3{	width: percentage( 3/8);	}
+	.M4{	width: percentage( 4/8);	}
+	.M5{	width: percentage( 5/8);	}
+	.M6{	width: percentage( 6/8);	}
+	.M7{	width: percentage( 7/8);	}
+	.M8{	width: percentage( 8/8);	}
+	
+	.M1_3{	width: percentage( 1/3);	}
+	.M2_3{	width: percentage( 2/3);	}
+}
+
+//Large - has 12 cols
+@include respond( L ) {
+	.L1, .L2, .L3, .L4, .L5, .L6, .L7, .L8, .L9, .L10, .L11, .L12, .L1_3, .L1_5{ float: left;	}
+	.L1{	width: percentage( 1/12);	}
+	.L2{	width: percentage( 2/12);	}
+	.L3{	width: percentage( 3/12);	}
+	.L4{	width: percentage( 4/12);	}
+	.L5{	width: percentage( 5/12);	}
+	.L6{	width: percentage( 6/12);	}
+	.L7{	width: percentage( 7/12);	}
+	.L8{	width: percentage( 8/12);	}
+	.L9{	width: percentage( 9/12);	}
+	.L10{	width: percentage( 10/12);	}
+	.L11{	width: percentage( 11/12);	}
+	.L12{	width: percentage( 12/12);	}
+
+	.L1_3{width: percentage( 1/3);	}
+	.L1_5{width: percentage( 1/5);	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
